@@ -32,6 +32,7 @@ activity: is the activity name as specified in the activity_labels.txt and obtai
 The other variables are the average per activity per subject of each of the 66 extracted features as follow:
 
 timebodyacc_mean_xyz for tBodyAcc-mean()-XYZ
+
 timegravityacc_mean_xyz for tGravityAcc-mean()-XYZ
 timebodyaccjerk_mean_xyz for tBodyAccJerk-mean()-XYZ
 timebodygyro_mean_xyz for tBodyGyro-mean()-XYZ
