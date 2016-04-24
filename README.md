@@ -19,12 +19,12 @@ Note: The script will re-use the previously downloaded data if the directory "UC
 The script does the following:
 
 1. Check if the directory "UCI HAR Dataset" exists before downloading the Dataset. If doesn't it downloads the data, unzip it and delete the original zip file. If does, it reuses the existing data.
-2. Load the data:
-* features.txt in the featureLabels dataframe
-* activity_labels.txt in the activityLabels
-* subject_train.txt, subject_test.txt in trainSubjects and testSubjects dataframes
-* X_train.txt, X_test.txt in trainX and testX dataframes
-* y_train.txt, y_test.txt in trainY and testY dataframes
+2. Load the data using read.table():
+2.1 features.txt in the featureLabels dataframe
+2.2 activity_labels.txt in the activityLabels
+2.3 subject_train.txt, subject_test.txt in trainSubjects and testSubjects dataframes
+2.4 X_train.txt, X_test.txt in trainX and testX dataframes
+2.5 y_train.txt, y_test.txt in trainY and testY dataframes
 3. Use rbind() to merge respective test and train data into mergedSubjects, mergedX, mergedY
 4. Use factor() to replace the activity identifier by its labels
 5. Use setNames() to set the column name for subject as "subject" in mergedSubjects, activity as "activity" in mergedY, and for each column in mergedX using the labels in featureLabels 
