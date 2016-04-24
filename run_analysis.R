@@ -2,59 +2,94 @@
 
 ## Load libraries
 library(plyr)
-library(dplyr)
 
 
 ## Download and unzip the data
-fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
-fileName <- "ZippedFiles.zip"
-download.file(fileUrl, destfile = fileName, method = "curl")
-unzip(fileName)
+if(!dir.exists(("UCI HAR Dataset"))) {
+  ## Download dataset if data has not already been downloaded
+  message("Downloading dataset")
+  fileUrl <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
+  fileName <- "ZippedFiles.zip"
+  download.file(fileUrl, destfile = fileName, method = "curl")
+  
+  ## Unzip files and remove zip archive file
+  unzip(fileName)
+  file.remove("ZippedFiles.zip")
+} else {
+  message("Reusing prevously downloaded data")
+}
 
 ## Load the data
+message("Loading data")
 ## Change the working directory to where the files were extracted
 setwd("./UCI HAR Dataset")
 
 ## Load feature labels
-feature_labels <-read.table("features.txt", sep =" ")
+featureLabels <-read.table("features.txt", sep =" ")
 
 ## Load Activity laberls
-activity_labels <-read.table("activity_labels.txt", sep =" ")
+ActivityLabels <-read.table("activity_labels.txt", sep =" ")
 
 ## Load subject ID
-train_subjects <- read.table("./train/subject_train.txt")
-test_subjects <- read.table("./test/subject_test.txt")
+trainSubjects <- read.table("./train/subject_train.txt")
+testSubjects <- read.table("./test/subject_test.txt")
 
 ## Load X data
-train_X <- read.table("./train/X_train.txt")
-test_X <- read.table("./test/X_test.txt")
+trainX <- read.table("./train/X_train.txt")
+testX <- read.table("./test/X_test.txt")
 
 ## Load Y data
-train_Y <- read.table("./train/y_train.txt")
-test_Y <- read.table("./test/y_test.txt")
+trainY <- read.table("./train/y_train.txt")
+testY <- read.table("./test/y_test.txt")
 
 ## Merge train and test datasets
-merged_subject <- rbind(train_subjects, test_subjects)
-merged_X <- rbind(train_X, test_X)
-merged_Y <- rbind(train_Y, test_Y)
+message("Merging test and training data")
+mergedSubjects <- rbind(trainSubjects, testSubjects)
+mergedX <- rbind(trainX, testX)
+mergedY <- rbind(trainY, testY)
+
+## Delete objects that are no longer needed
+rm(trainX)
+rm(trainY)
+rm(testX)
+rm(testY)
+rm(trainSubjects)
+rm(testSubjects)
 
 ## Replace activity id by descriptive activity name
-merged_Y <- data.frame(factor(merged_Y[,1], levels = activity_labels[,1], labels = activity_labels[,2]))
+mergedY <- data.frame(factor(mergedY[,1], levels = ActivityLabels[,1], labels = ActivityLabels[,2]))
 
 ## Rename columns
-merged_subject <- setNames(merged_subject, "subject")
-merged_Y <- setNames(merged_Y, "activity")
-merged_X <- setNames(merged_X, feature_labels[,2])
+mergedSubjects <- setNames(mergedSubjects, "subject")
+mergedY <- setNames(mergedY, "activity")
+mergedX <- setNames(mergedX, featureLabels[,2])
 
 ## Extracts only the measurements on the mean and standard deviation for each measurement
-merged_X <- merged_X[, grep("-(mean|std)\\(", feature_labels[,2])]
+## Only features with mean() or std() in their lable were kept
+## Features whose names include gravityMean or meanFreq() were not kept
+mergedX <- mergedX[, grep("-(mean|std)\\(", featureLabels[,2])]
 
 ## merge subjects, X, Y datasets
-merged_all <- cbind(merged_subject, merged_Y, merged_X)
+mergedAll <- cbind(mergedSubjects, mergedY, mergedX)
+
+## Delete objects that are no longer needed
+rm(mergedX)
+rm(mergedY)
+rm(mergedSubjects)
 
 ## Summarize data
-average_all <- ddply(merged_all, .(subject, activity), function(x) colMeans(x[, 3:68]))
+message("Summarizing data and making data tidy")
+averageAll <- ddply(mergedAll, .(subject, activity), function(x) colMeans(x[, 3:68]))
 
 ## Clean update the columns names to make it easier to use them in R without having to escape some of the special chatacters
-names(average_all) <- tolower(gsub("_$", "", (gsub("\\(\\)|\\(\\)-|-", "_", names(average_all))))) ## Replace () - by _ and remove any trailing _
-write.table(average_all, "../tidy_data.txt", row.name=FALSE)
+names(averageAll) <- tolower(names(averageAll)) ## Change all characters to lower caps
+names(averageAll) <- gsub("bodybody", "body", names(averageAll)) ## remove the duplicate word "body"
+names(averageAll) <- gsub("^t", "time", names(averageAll)) ## Replace t by time
+names(averageAll) <- gsub("^f", "freq", names(averageAll)) ## Replace t by freq
+names(averageAll) <- gsub("\\(\\)|\\(\\)-|-", "_", names(averageAll)) ## Replace () - by _ (I found it clearer than without)
+names(averageAll) <- gsub("_$", "", names(averageAll)) ## remove any trailing _
+
+## Create files with tidy dataset
+message("Writing tidy_data.txt file")
+setwd("../")
+write.table(averageAll, "tidy_data.txt", row.name=FALSE)
