@@ -1,4 +1,4 @@
-# Getting and Cleaning Data -Project CodeBook(
+# Getting and Cleaning Data -Project CodeBook
 ## Approach for generating the tidy_data.txt dataset
 
 The tidy_data.txt dataset was generate from the dataset provide by the UCI Machine Learning Repository:
