@@ -26,15 +26,14 @@ The tidy_data.txt dataset was created by calculating the average per activity pe
 
 ## Variables in the tidy_data.txt dataset
 
-* subject: is the subject id
-* activity: is the activity name as specified in the activity_labels.txt and obtained by matching the activity number
+**subject**: is the subject id
+**activity**: is the activity name as specified in the activity_labels.txt and obtained by matching the activity number
 
 The other variables are the average per activity per subject of each of the 66 extracted features as follow:
-| tidy_data variable | for extracted feasture |
-|--------------------|------------------------|
-|timebodyacc_mean_xyz|tBodyAcc-mean()-XYZ|
-|timegravityacc_mean_xyz|tGravityAcc-mean()-XYZ|
-* timebodyaccjerk_mean_xyz for tBodyAccJerk-mean()-XYZ
+
+**timebodyacc_mean_xyz** for tBodyAcc-mean()-XYZ|
+**timegravityacc_mean_xyz** for tGravityAcc-mean()-XYZ|
+**timebodyaccjerk_mean_xyz** for tBodyAccJerk-mean()-XYZ
 * timebodygyro_mean_xyz for tBodyGyro-mean()-XYZ
 * timebodygyrojerk_mean_xyz for tBodyGyroJerk-mean()-XYZ
 * timebodyaccmag_mean for tBodyAccMag-mean()
