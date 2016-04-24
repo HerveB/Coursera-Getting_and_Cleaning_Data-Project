@@ -70,11 +70,11 @@ The other variables are the average per activity per subject of each of the 66 e
 
 Each observation is the average of the extracted feature for a given activity and subject.
 
-## Notes: 
+## Notes
 * Features are normalized and bounded within [-1,1].
 * Some typos in the features names in the original dataset were corrected e.g. BodyBody in the name instead of just Body.
 
-## License (from the original README.txt file):
+## License (from the original README.txt file)
 Use of this dataset in publications must be acknowledged by referencing the following publication [1] 
 
 [1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
