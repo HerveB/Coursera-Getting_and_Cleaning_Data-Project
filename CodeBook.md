@@ -66,7 +66,7 @@ The other variables are the average per activity per subject of each of the 66 e
 * **freqbodygyromag_std** for fBodyGyroMag-std()
 * **freqbodygyrojerkmag_std** for fBodyGyroJerkMag-std()
 
-'-xyz' and '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions and are represented as 3 different variable, each time.
+'-xyz' and '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions and are represented as 3 different variables e.g. timebodyacc_mean_xyz is actually timebodyacc_mean_x, timebodyacc_mean_y, timebodyacc_mean_z.
 
 Each observation is the average of the extracted feature for a given activity and subject.
 
