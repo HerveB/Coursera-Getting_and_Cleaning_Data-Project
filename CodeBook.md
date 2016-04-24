@@ -74,8 +74,6 @@ Each observation is the average of the extracted feature for a given activity an
 * Features are normalized and bounded within [-1,1].
 * Some typos in the features names in the original dataset were corrected e.g. BodyBody in the name instead of just Body.
 
-For more information about this dataset contact: activityrecognition@smartlab.ws
-
 ## License (from the original README.txt file):
 Use of this dataset in publications must be acknowledged by referencing the following publication [1] 
 
