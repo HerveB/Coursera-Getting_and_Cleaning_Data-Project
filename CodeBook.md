@@ -9,7 +9,7 @@ REAME.txt file included with the original dataset provides more details.
 The data  represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained:
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-**The original data was split between training and test data. Both were merge for the purpose of create the tidy_data.txt dataset.**
+**The original data was split between training and test data. Both were merged for the purpose of creating the tidy_data.txt dataset.**
 
 **Only 66 features from the original 561 features were extracted for the assignment: those that are means or standard deviations e.g. variables containing -mean() or -std() in their name.**
 
@@ -26,7 +26,7 @@ These signals were used to estimate variables of the feature vector for each pat
 
 ## Variables in the tidy_data.txt dataset
 
-* **subject**: is the subject id
+* **subject**: is the subject number
 * **activity**: is the activity name as specified in the activity_labels.txt and obtained by matching the activity number
 
 The other variables are the average per activity per subject of each of the 66 extracted features as follow:
