@@ -1,28 +1,82 @@
-# Getting and Cleaning Data - Project ReadMe file
+# Getting and Cleaning Data -Project CodeBook(
+## Approach for generating the tidy_data.txt dataset
 
-## Objective:
-
-To create one R script called run_analysis.R that does the following.
-
-* Merges the training and the test sets to create one data set.
-* Extracts only the measurements on the mean and standard deviation for each measurement.
-* Uses descriptive activity names to name the activities in the data set
-* Appropriately labels the data set with descriptive variable names.
-* From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-
-The resulting tidy data set was stored in the file called tidy_data.txt in the same directory as the run_analysis.R script.
-
-Note: The script will re-use the previously downloaded data if the directory "UCI HAR Datasetdata" is present.
-
-## Data Set
-The project uses the data set for the UCI Machine Learning Repository:
+The tidy_data.txt dataset was generate from the dataset provide by the UCI Machine Learning Repository:
 https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
+
+REAME.txt file included with the original dataset provides more details.
 
 The data  represent data collected from the accelerometers from the Samsung Galaxy S smartphone. A full description is available at the site where the data was obtained:
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
-## License (From the original README.txt file):
+The original data was split between training and test data. Both were merge for the purpose of create the tidy_data.txt dataset.
+
+Only 66 features from the original 561 features were extracted for the assignment: those that are means or standard deviations e.g. variables containing -mean() or -std() in their name.
+
+The 561 features selected for the original database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
+
+These signals were used to estimate variables of the feature vector for each pattern:  
+'-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
+
+The tidy_data.txt dataset was created by calculating the average per activity per subject of each of the 66 extracted features.
+
+## Variables in the tidy_data.txt dataset
+
+subject: is the subject id
+activity: is the activity name as specified in the activity_labels.txt and obtained by matching the activity number
+
+The other variables are the average per activity per subject of each of the 66 extracted features as follow:
+
+timebodyacc_mean_xyz for tBodyAcc-mean()-XYZ
+timegravityacc_mean_xyz for tGravityAcc-mean()-XYZ
+timebodyaccjerk_mean_xyz for tBodyAccJerk-mean()-XYZ
+timebodygyro_mean_xyz for tBodyGyro-mean()-XYZ
+timebodygyrojerk_mean_xyz for tBodyGyroJerk-mean()-XYZ
+timebodyaccmag_mean for tBodyAccMag-mean()
+timegravityaccmag_mean for tGravityAccMag-mean()
+timebodyaccjerkmag_mean for tBodyAccJerkMag-mean()
+timebodygyromag_mean for tBodyGyroMag-mean()
+timebodygyrojerkmag_mean for tBodyGyroJerkMag-mean()
+timebodyacc_std_xyz for tBodyAcc-std()-XYZ
+timegravityacc_std_xyz for tGravityAcc-std()-XYZ
+timebodyaccjerk_std_xyz for tBodyAccJerk-std()-XYZ
+timebodygyro_std_xyz for tBodyGyro-std()-XYZ
+timebodygyrojerk_std_xyz for tBodyGyroJerk-std()-XYZ
+timebodyaccmag_std for tBodyAccMag-std()
+timegravityaccmag_std for tGravityAccMag-std()
+timebodyaccjerkmag_std for tBodyAccJerkMag-std()
+timebodygyromag_std for tBodyGyroMag-std()
+timebodygyrojerkmag_std for tBodyGyroJerkMag-std()
+freqbodyacc_mean_xyz for fBodyAcc-mean()-XYZ
+freqbodyaccjerk_mean_xyz for fBodyAccJerk-mean()-XYZ
+freqbodygyro_mean_xyz for fBodyGyro-mean()-XYZ
+freqbodyaccmag_mean_xyz for fBodyAccMag-mean()
+freqbodyaccjerkmag_mean for fBodyAccJerkMag-mean()
+freqbodygyromag_mean for fBodyGyroMag-mean()
+freqbodygyrojerkmag_mean for fBodyGyroJerkMag-mean()
+freqbodyacc_std_xyz for fBodyAcc-std()-XYZ
+freqbodyaccjerk_std_xyz for fBodyAccJerk-std()-XYZ
+freqbodygyro_std_xyz for fBodyGyro-std()-XYZ
+freqbodyaccmag_std_xyz for fBodyAccMag-std()
+freqbodyaccjerkmag_std for fBodyAccJerkMag-std()
+freqbodygyromag_std for fBodyGyroMag-std()
+freqbodygyrojerkmag_std for fBodyGyroJerkMag-std()
+
+'-xyz' and '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions and are represented as 3 different variable, each time.
+
+Each observation is the average of the extracted feature for a given activity and subject.
+
+## Notes: 
+- Features are normalized and bounded within [-1,1].
+- Some typos in the features names in the original dataset were corrected e.g. BodyBody in the name instead of just Body.
+
+For more information about this dataset contact: activityrecognition@smartlab.ws
+
+## License (from the original README.txt file):
 Use of this dataset in publications must be acknowledged by referencing the following publication [1] 
 
 [1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012
-
