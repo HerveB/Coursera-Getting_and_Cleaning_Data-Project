@@ -10,7 +10,7 @@ To create one R script called run_analysis.R that does the following.
 * Appropriately labels the data set with descriptive variable names.
 * From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
-The resulting tidy data set was stored in the file called tidy_data.txt in the same directory as the run_analysis.R script.
+The resulting tidy data set is stored in the file called tidy_data.txt in the same directory as the run_analysis.R script.
 
 Note: The script will re-use the previously downloaded data if the directory "UCI HAR Datasetdata" is present.
 
