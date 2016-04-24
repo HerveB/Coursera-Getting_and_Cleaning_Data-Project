@@ -28,7 +28,7 @@ setwd("./UCI HAR Dataset")
 featureLabels <-read.table("features.txt", sep =" ")
 
 ## Load Activity laberls
-ActivityLabels <-read.table("activity_labels.txt", sep =" ")
+activityLabels <-read.table("activity_labels.txt", sep =" ")
 
 ## Load subject ID
 trainSubjects <- read.table("./train/subject_train.txt")
@@ -57,7 +57,7 @@ rm(trainSubjects)
 rm(testSubjects)
 
 ## Replace activity id by descriptive activity name
-mergedY <- data.frame(factor(mergedY[,1], levels = ActivityLabels[,1], labels = ActivityLabels[,2]))
+mergedY <- data.frame(factor(mergedY[,1], levels = activityLabels[,1], labels = activityLabels[,2]))
 
 ## Rename columns
 mergedSubjects <- setNames(mergedSubjects, "subject")
