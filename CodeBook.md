@@ -26,54 +26,53 @@ The tidy_data.txt dataset was created by calculating the average per activity pe
 
 ## Variables in the tidy_data.txt dataset
 
-subject: is the subject id
-activity: is the activity name as specified in the activity_labels.txt and obtained by matching the activity number
+* subject: is the subject id
+* activity: is the activity name as specified in the activity_labels.txt and obtained by matching the activity number
 
 The other variables are the average per activity per subject of each of the 66 extracted features as follow:
 
-timebodyacc_mean_xyz for tBodyAcc-mean()-XYZ
-
-timegravityacc_mean_xyz for tGravityAcc-mean()-XYZ
-timebodyaccjerk_mean_xyz for tBodyAccJerk-mean()-XYZ
-timebodygyro_mean_xyz for tBodyGyro-mean()-XYZ
-timebodygyrojerk_mean_xyz for tBodyGyroJerk-mean()-XYZ
-timebodyaccmag_mean for tBodyAccMag-mean()
-timegravityaccmag_mean for tGravityAccMag-mean()
-timebodyaccjerkmag_mean for tBodyAccJerkMag-mean()
-timebodygyromag_mean for tBodyGyroMag-mean()
-timebodygyrojerkmag_mean for tBodyGyroJerkMag-mean()
-timebodyacc_std_xyz for tBodyAcc-std()-XYZ
-timegravityacc_std_xyz for tGravityAcc-std()-XYZ
-timebodyaccjerk_std_xyz for tBodyAccJerk-std()-XYZ
-timebodygyro_std_xyz for tBodyGyro-std()-XYZ
-timebodygyrojerk_std_xyz for tBodyGyroJerk-std()-XYZ
-timebodyaccmag_std for tBodyAccMag-std()
-timegravityaccmag_std for tGravityAccMag-std()
-timebodyaccjerkmag_std for tBodyAccJerkMag-std()
-timebodygyromag_std for tBodyGyroMag-std()
-timebodygyrojerkmag_std for tBodyGyroJerkMag-std()
-freqbodyacc_mean_xyz for fBodyAcc-mean()-XYZ
-freqbodyaccjerk_mean_xyz for fBodyAccJerk-mean()-XYZ
-freqbodygyro_mean_xyz for fBodyGyro-mean()-XYZ
-freqbodyaccmag_mean_xyz for fBodyAccMag-mean()
-freqbodyaccjerkmag_mean for fBodyAccJerkMag-mean()
-freqbodygyromag_mean for fBodyGyroMag-mean()
-freqbodygyrojerkmag_mean for fBodyGyroJerkMag-mean()
-freqbodyacc_std_xyz for fBodyAcc-std()-XYZ
-freqbodyaccjerk_std_xyz for fBodyAccJerk-std()-XYZ
-freqbodygyro_std_xyz for fBodyGyro-std()-XYZ
-freqbodyaccmag_std_xyz for fBodyAccMag-std()
-freqbodyaccjerkmag_std for fBodyAccJerkMag-std()
-freqbodygyromag_std for fBodyGyroMag-std()
-freqbodygyrojerkmag_std for fBodyGyroJerkMag-std()
+* timebodyacc_mean_xyz for tBodyAcc-mean()-XYZ
+* timegravityacc_mean_xyz for tGravityAcc-mean()-XYZ
+* timebodyaccjerk_mean_xyz for tBodyAccJerk-mean()-XYZ
+* timebodygyro_mean_xyz for tBodyGyro-mean()-XYZ
+* timebodygyrojerk_mean_xyz for tBodyGyroJerk-mean()-XYZ
+* timebodyaccmag_mean for tBodyAccMag-mean()
+* timegravityaccmag_mean for tGravityAccMag-mean()
+* timebodyaccjerkmag_mean for tBodyAccJerkMag-mean()
+* timebodygyromag_mean for tBodyGyroMag-mean()
+* timebodygyrojerkmag_mean for tBodyGyroJerkMag-mean()
+* timebodyacc_std_xyz for tBodyAcc-std()-XYZ
+* timegravityacc_std_xyz for tGravityAcc-std()-XYZ
+* timebodyaccjerk_std_xyz for tBodyAccJerk-std()-XYZ
+* timebodygyro_std_xyz for tBodyGyro-std()-XYZ
+* timebodygyrojerk_std_xyz for tBodyGyroJerk-std()-XYZ
+* timebodyaccmag_std for tBodyAccMag-std()
+* timegravityaccmag_std for tGravityAccMag-std()
+* timebodyaccjerkmag_std for tBodyAccJerkMag-std()
+* timebodygyromag_std for tBodyGyroMag-std()
+* timebodygyrojerkmag_std for tBodyGyroJerkMag-std()
+* freqbodyacc_mean_xyz for fBodyAcc-mean()-XYZ
+* freqbodyaccjerk_mean_xyz for fBodyAccJerk-mean()-XYZ
+* freqbodygyro_mean_xyz for fBodyGyro-mean()-XYZ
+* freqbodyaccmag_mean_xyz for fBodyAccMag-mean()
+* freqbodyaccjerkmag_mean for fBodyAccJerkMag-mean()
+* freqbodygyromag_mean for fBodyGyroMag-mean()
+* freqbodygyrojerkmag_mean for fBodyGyroJerkMag-mean()
+* freqbodyacc_std_xyz for fBodyAcc-std()-XYZ
+* freqbodyaccjerk_std_xyz for fBodyAccJerk-std()-XYZ
+* freqbodygyro_std_xyz for fBodyGyro-std()-XYZ
+* freqbodyaccmag_std_xyz for fBodyAccMag-std()
+* freqbodyaccjerkmag_std for fBodyAccJerkMag-std()
+* freqbodygyromag_std for fBodyGyroMag-std()
+* freqbodygyrojerkmag_std for fBodyGyroJerkMag-std()
 
 '-xyz' and '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions and are represented as 3 different variable, each time.
 
 Each observation is the average of the extracted feature for a given activity and subject.
 
 ## Notes: 
-- Features are normalized and bounded within [-1,1].
-- Some typos in the features names in the original dataset were corrected e.g. BodyBody in the name instead of just Body.
+* Features are normalized and bounded within [-1,1].
+* Some typos in the features names in the original dataset were corrected e.g. BodyBody in the name instead of just Body.
 
 For more information about this dataset contact: activityrecognition@smartlab.ws
 
